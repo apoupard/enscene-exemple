@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>io.enscene.exemple</groupId>
+		<artifactId>enscene-exemple</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>enscene-exemple-helloworld</artifactId>
+	<packaging>war</packaging>
+	
+	<properties>
+		<version.jetty>8.1.15.v20140411</version.jetty>
+		<version.enscene-testing-arquillian>0.0.1-SNAPSHOT</version.enscene-testing-arquillian>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.enscene.core</groupId>
+			<artifactId>enscene-core-impl-resteasy</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.enscene.testing.arquillian</groupId>
+			<artifactId>enscene-testing-arquillian-depchain</artifactId>
+			<version>${version.enscene-testing-arquillian}</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.15.v20140411</version>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<profiles>
+		<profile>
+			<id>jetty-9-embedded</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>io.enscene.testing.arquillian</groupId>
+					<artifactId>enscene-testing-arquillian-jetty-9</artifactId>
+					<version>${project.version}</version>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>jetty-8-embedded</id>
+
+			<dependencies>
+				<dependency>
+					<groupId>io.enscene.testing.arquillian</groupId>
+					<artifactId>enscene-testing-arquillian-jetty-8</artifactId>
+					<version>${project.version}</version>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>tomcat-embedded</id>
+			<dependencies>
+				<dependency>
+					<groupId>io.enscene.testing.arquillian</groupId>
+					<artifactId>enscene-testing-arquillian-tomcat-8</artifactId>
+					<version>${project.version}</version>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+</project>
