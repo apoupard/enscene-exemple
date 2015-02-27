@@ -9,13 +9,12 @@ import javax.ws.rs.core.MediaType;
 @Path("helloworld")
 public class HelloWorldResource {
 
-	@Inject
-	public HelloWorldResource() {
-	}
+  @Inject
+  public HelloWorldResource() {}
 
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String helloWorld() {
-		return "Hello world!";
-	}
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public String helloWorld() {
+    return "Hello world!";
+  }
 }

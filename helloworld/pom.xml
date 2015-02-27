@@ -20,7 +20,6 @@
 		<dependency>
 			<groupId>io.enscene.core</groupId>
 			<artifactId>enscene-core-impl-resteasy</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>

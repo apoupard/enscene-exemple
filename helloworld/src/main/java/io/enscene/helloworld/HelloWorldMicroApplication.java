@@ -10,9 +10,9 @@ import io.enscene.helloworld.resource.HelloWorldResource;
 @ApplicationPath("")
 public class HelloWorldMicroApplication extends MicroService {
 
-	@Override
-	public void configure(Binder binder) {
-		binder.bind(HelloWorldResource.class);
-	}
+  @Override
+  public void configure(Binder binder) {
+    binder.bind(HelloWorldResource.class);
+  }
 
 }
